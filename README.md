@@ -8,7 +8,7 @@ Aspects enable the modularization of crosscutting concerns such as transaction m
 
 Aspect Oriented Programming..
 
-C:\share\desktop\java\webservices\AOP_concept.PNG
+[![aop](aop "aop")](https://github.com/praveenambati1233/Spring/blob/master/AOP_concept.PNG "aop")
 
 AOP concepts :
 
