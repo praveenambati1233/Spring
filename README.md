@@ -8,7 +8,7 @@ Aspects enable the modularization of crosscutting concerns such as transaction m
 
 Aspect Oriented Programming..
 
-[![aop](aop "aop")](https://github.com/praveenambati1233/Spring/blob/master/AOP_concept.PNG "aop")
+![](https://raw.githubusercontent.com/praveenambati1233/Spring/master/AOP_concept.PNG?token=AL5BQD7HEBFROJYDPFBJ7MC6PBTYC)
 
 AOP concepts :
 
@@ -28,7 +28,6 @@ Before :
 
 
 wildcards: 
-
 
 
 
