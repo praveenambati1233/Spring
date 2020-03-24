@@ -1,4 +1,4 @@
-Spring AOP
+#### **Spring AOP**
 
 Aspect-Oriented Programming (AOP) complements Object-Oriented Programming (OOP) by providing another way of thinking about program structure. 
 
@@ -35,7 +35,9 @@ proxyStudent.getAge();
 
 Aspect Oriented Programming..
 
-![](https://raw.githubusercontent.com/praveenambati1233/Spring/master/AOP_concept.PNG?token=AL5BQD7HEBFROJYDPFBJ7MC6PBTYC)
+![](https://raw.githubusercontent.com/praveenambati1233/Spring/master/AOP_concept.PNG?token=AL5BQD4PE43VJRY7KVDPDVS6PIHMU) 
+
+
 
 **Steps in AOP**
 1. write Aspects
@@ -69,7 +71,7 @@ Annotation - @PointCut
     private void tradingOperation() {}
 ```
 
-Target object
+- Target object
 
 The object being advised by one or more aspects. This object will always be a proxied object. Also referred to as the advised object.
 
