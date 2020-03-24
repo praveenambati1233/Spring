@@ -109,20 +109,72 @@ Runs after the advised method throws a Runtime Exception. It is denoted by @Afte
 
 This is the strongest advice among all the advice since it wraps around and runs before and after the advised method. This type of advice is used where we need frequent access to a method or database like- caching. It is denoted by @Around annotation.
 
-Around object(ProceedingJoinPoint.process) has controll to change the "after returning" value and send back to adviced. 
+Around object(ProceedingJoinPoint.process) has controll to change the "after returning" value and send back to adviced/caller. 
 
 ```java
-public void logAroundAllMethods(ProceedingJoinPoint proceedingJoinPoint) throws Throwable 
+public Object  logAroundAllMethods(ProceedingJoinPoint proceedingJoinPoint) throws Throwable 
 {
-    System.out.println("****LoggingAspect.logAroundAllMethods() - Before method call");
+    Object returnValue = null;
+	try{
+	System.out.println("****LoggingAspect.logAroundAllMethods() - Before method call");
      
-    proceedingJoinPoint.proceed();
+    returnValue = proceedingJoinPoint.proceed();
      
     System.out.println("****LoggingAspect.logAroundAllMethods() - After method call");
+	}catch(Exception e){
+	System.out.println("******After throwing exception*****");
+	}
+	
+	System.out.println("******After throwing exception*****");
+	return returnValue;
 }
+
 ```
 
+ Custom annotation which can be market as an Advice on given  method : 
+ 
+ 1. create annotation.
+ 2. provide annotation in the pointcut expression
 
+when you want to run Advice on particular method  you can Annotate like below,
+
+Step 1 :
+
+```java
+package room.aop.aspects;
+public @interface Loggable {
+}
+```
+Step 2
+
+```java
+@Around("@annotation(room.aop.aspects.Loggable)")
+	public void logAllMethod(ProceedingJoinPoint joinPoint) throws Throwable{
+	
+		System.out.println("Before advice");
+		joinPoint.proceed();
+		System.out.println("After advice");
+	}
+```
+
+```java
+@Loggable
+	public String getName() {
+		System.out.println(name);
+		return name;
+	}
+```
+	
+```java
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-context.xml");
+				ShapeService service =  applicationContext.getBean("shapeService",ShapeService.class);
+		service.getTraingle().getName();
+```
+output :
+```java
+Before advice
+After advice
+```
 
 
 **Important methods  : **
