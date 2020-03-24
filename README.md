@@ -51,7 +51,8 @@ Annotation - @Aspect
 
 - PointCut
 
-This is a set of one or more joinpoints where an advice should be executed. You can specify PointCuts using expressions or patterns as we will see in our AOP examples.
+Since it is not feasible to apply advice at every point of the code, therefore, the selected join points where advice is finally applied are known as the Pointcut. Often you specify these pointcuts using explicit class and method names or through regular expressions that define a matching class and method name patterns. It helps in reduction of repeating code by writing once and use at multiple points, let’s see how.
+
 Annotation - @PointCut
 
 
@@ -109,6 +110,18 @@ Runs after the advised method throws a Runtime Exception. It is denoted by @Afte
 This is the strongest advice among all the advice since it wraps around and runs before and after the advised method. This type of advice is used where we need frequent access to a method or database like- caching. It is denoted by @Around annotation.
 
 Around object(ProceedingJoinPoint.process) has controll to change the "after returning" value and send back to adviced. 
+
+```java
+public void logAroundAllMethods(ProceedingJoinPoint proceedingJoinPoint) throws Throwable 
+{
+    System.out.println("****LoggingAspect.logAroundAllMethods() - Before method call");
+     
+    proceedingJoinPoint.proceed();
+     
+    System.out.println("****LoggingAspect.logAroundAllMethods() - After method call");
+}
+```
+
 
 
 
