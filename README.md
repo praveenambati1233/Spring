@@ -6,6 +6,15 @@ The key unit of modularity in OOP is the **class**, whereas in AOP the unit of m
 
 Aspects enable the modularization of crosscutting concerns such as transaction management, security, logging, auditing, caching or  custom aspects, complementing their use of OOP with AOP.
 
+Cross cutting corners :
+
+Cross cutting concerns are 'things' you want to do in multiple places in your application.
+
+- Logging REST call
+- Gathering metrics on method calls
+- Only let 'admin' users access functionality
+- Only let requests from localhost access functionality
+
 Spring uses **proxy based mechanism** i.e. it creates a proxy Object which will wrap around the original object and will take up the advice which is relevant to the method call. Proxy objects can be created either manually through proxy factory bean or through auto proxy configuration in the XML file and get destroyed when the execution completes. Proxy objects are used to enrich the Original behaviour of the real object.
 
 ```java
@@ -38,7 +47,7 @@ Types of advice:
 
 A module which has a set of APIs providing cross-cutting requirements. For example, a logging module would be called AOP aspect for logging. An application can have any number of aspects depending on the requirement.  
 
-**Annotation** - @Aspect
+Annotation - @Aspect
 
 - PointCut
 
@@ -57,13 +66,52 @@ Annotation - @PointCut
     private void tradingOperation() {}
 ```
 
+Target object
 
-Advice : action taken by an aspect at a particular join point
+The object being advised by one or more aspects. This object will always be a proxied object. Also referred to as the advised object.
+
+- Weaving
+
+Weaving is the process of linking aspects with other application types or objects to create an advised object. This can be done at compile time, load time, or at runtime.
+
+- Advice
+
+This is the actual action to be taken either before or after the method execution. This is the actual piece of code that is invoked during program execution by Spring AOP framework.
+
+**Type of Advices**
+
+- Before
+
+@Before is an advice type which ensures that an advice runs before the method execution. Following is the syntax of @Before advice.
+
+- After
+
+@After is an advice type which ensures that an advice runs after the method execution. Following is the syntax of @After advice.
 
 
-Before :  @Before
+
+- after-returning - Runs after the advised method successfully completes ie without any runtime exceptions.
+
+How to  capture return value of the method that being called ?
+@AfterReturning(returning="returnObject")
+public void returnObject(Object returnObject){
+s.o.p("reutrn value"+returnObject)
+}
+
+
+- after-throwing
+
+- around
+
+
+**Important methods  : **
+
+**JoinPoint **-  contains all the information of the method called. 
+
+joinPoint.getTarget() -- provides all
 
 
 
 
 
+TODO -  https://stackoverflow.com/questions/60816175/how-to-ignore-aop-exceptions-and-continue-with-service-logic
