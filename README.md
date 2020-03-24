@@ -15,6 +15,8 @@ Cross cutting concerns are 'things' you want to do in multiple places in your ap
 - Only let 'admin' users access functionality
 - Only let requests from localhost access functionality
 
+**How AOP procxies works ?**
+
 Spring uses **proxy based mechanism** i.e. it creates a proxy Object which will wrap around the original object and will take up the advice which is relevant to the method call. Proxy objects can be created either manually through proxy factory bean or through auto proxy configuration in the XML file and get destroyed when the execution completes. Proxy objects are used to enrich the Original behaviour of the real object.
 
 ```java
