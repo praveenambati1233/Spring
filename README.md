@@ -88,9 +88,9 @@ This is the actual action to be taken either before or after the method executio
 
 @After is an advice type which ensures that an advice runs after the method execution. Following is the syntax of @After advice.
 
+- after-returning 
 
-
-- after-returning - Runs after the advised method successfully completes ie without any runtime exceptions.
+Runs after the advised method successfully completes ie without any runtime exceptions.
 
 How to  capture return value of the method that being called ?
 ```java
@@ -99,6 +99,11 @@ public void returnObject(Object returnObject){
 s.o.p("reutrn value"+returnObject)
 }
 ```
+
+- AfterThrowing
+
+Runs after the advised method throws a Runtime Exception. It is denoted by @AfterThrowing annotation.
+
 - around
 
 This is the strongest advice among all the advice since it wraps around and runs before and after the advised method. This type of advice is used where we need frequent access to a method or database like- caching. It is denoted by @Around annotation.
