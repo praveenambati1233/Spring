@@ -35,8 +35,7 @@ proxyStudent.getAge();
 
 Aspect Oriented Programming..
 
-![](https://raw.githubusercontent.com/praveenambati1233/Spring/master/AOP_concept.PNG?token=AL5BQD4PE43VJRY7KVDPDVS6PIHMU) 
-
+![](https://raw.githubusercontent.com/praveenambati1233/Spring/master/AOP_concept.PNG?token=AL5BQD7GGUUTF5J4XAVPDUS6PLOG2) 
 
 
 **Steps in AOP**
